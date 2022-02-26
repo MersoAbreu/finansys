@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { NavbarComponent } from './static/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { InMemoryDatabase } from './in-memory-database';
 
 
 @NgModule({
@@ -15,7 +18,9 @@ import { NavbarComponent } from './static/navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CategoriesModule
+    CategoriesModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase)
   ],
   providers: [],
   bootstrap: [AppComponent]
